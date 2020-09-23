@@ -34,6 +34,13 @@
 
 }
 
+body{
+	background-image:url("test2.jpg");
+}
+
+.Begin{
+	background-color: #EBEDEF;
+}
 .footer {
     position: relative;
     bottom: 0;
@@ -61,23 +68,39 @@
     height:auto;
 }
 
+.Img_acc{
+	max-width:100%;
+
+}
+
+
+
 .btn{
 
 }
 
 .image_block{
 	background-color:red;
+	min-height: 200px;
+
 }
 
 .image_block1{
 	background-color:red;
+	min-height: 200px;
 }
 
 .image_block2{
 	background-color:red;
+	min-height: 200px;
 }
 
-body{
+.body_acc{
 	background-image: url("test2.jpg");
     width: :100%;
+}
+
+.footer_acc{
+	background-color:#34495E;
+	min-height: 60px;
 }
