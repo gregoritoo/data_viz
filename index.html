@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Data-viz</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid up-header">
+      <img class="img" src = "logo.png" alt="My Logo">
+    </div>
+      <div class="container-fluid body">
+        <div class="row">
+          <div class="container-fluid side col-md-2 ">
+            <nav>
+              <ul class="nav ">
+                <li class="nav-item"><a class="nav-link active" id="idnav-desc" data-toggle="tab" data-target="#nav-desc" role="tab" aria-controls="nav-desc" aria-selected="true">Description du projet</a></li>
+        
+                <li class="nav-item" ><a class="nav-link" id="idnav-viz" data-toggle="tab" data-target="#nav-viz" role="tab" aria-controls="nav-viz" aria-selected="false">Visualisation des données<li></a></li>
+       
+                <li class="nav-item" ><a class="nav-link" id="idnav-choice" data-toggle="tab" data-target="#nav-choice" role="tab" aria-controls="nav-choice" aria-selected="false">Descriptions du choix des visualisations</a></li>
+          
+                <li class="nav-item"><a class="nav-link" id="idnav-contact" data-toggle="tab" data-target="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> Nous contacter </a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="container body_class col-md-10 h-100 d-inline-block min-vh-100"s> 
+            <div class="col-md-10">
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade  show active" id="nav-desc" role="tabpanel" aria-labelledby="idnav-desc">
+                  <h1> Description data </h1>
+                    <p>
+                      Lorem ipsum dolor sit amet, minim definiebas no sit, ex duo nonumy dicunt. Dolorum tincidunt at sea, ei delicata tractatos vel. Sint utroque in eos, suas velit interesset est ne. Mel tempor utamur neglegentur ei, ea sumo essent inimicus pri. In magna viderer antiopam his, no alii persius vivendum eos.
+
+                      Cum ad aeque euripidis, per ex noluisse assueverit. Te eos solet consetetur appellantur, ne vitae populo his. Invenire honestatis at sed, tempor integre tincidunt sea an. Et ullum fastidii vel, mea docendi oporteat tractatos an, zril tollit atomorum mea ad.
+
+                      Vix ad facilisis deterruisset, te justo timeam voluptua mea. Et magna volumus pri, eu eos aeterno eligendi theophrastus. Vidit invenire patrioque eu vix, an sed dicit commodo virtute, cum no verear officiis adversarium. Eu vis antiopam senserit. Dolorem suavitate ius ei, per ea exerci blandit.
+
+                      Quo id autem ludus dolores, sed vocibus torquatos ne. Altera labores ad sit, nullam dissentias efficiantur te est, eu quodsi expetenda usu. Ex ius ullum copiosae iracundia. Vim et nonumes temporibus, cu vis porro signiferumque. Cu est adhuc habemus.
+
+                      Id his putent dissentiunt theophrastus, dicat everti mea an. Ut pro veri harum, est cu timeam aperiri. Inani forensibus qui id, ut cetero fabellas posidonium vis. Assum conceptam ne pri, id eam falli lobortis, cum ea tale ancillae persecuti. Te vim error partem splendide, ei qui enim expetenda. 
+                    </p>
+                </div>
+                <div class="tab-pane fade show active" id="nav-viz" role="tabpanel" aria-labelledby="idnav-viz">
+                    <h1> Project </h1>
+                      <p>
+                        Ici les graphs
+                      </p>
+                    <div class="card shadow mb-4">
+                      <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                      </div>
+                      <div class="card-body">
+                        <div class="chart-bar">
+                          <canvas id="myBarChart"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                      Code à mettre ici <code>code_js</code> file.
+                    <div class="card shadow mb-4">
+                      <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Bubble Chart</h6>
+                      </div>
+                      <div class="card-body">
+                        <div class="chart-bar">
+                          <canvas id="myBarChart2"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                      Code à mettre ici <code>code_js</code> file.
+                    <div class="card shadow mb-4">
+                      <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Autres Chart</h6>
+                      </div>
+                      <div class="card-body">
+                        <div class="chart-bar">
+                          <canvas id="myBarChart3"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                      Code à mettre ici <code>code_js</code> file.
+                </div>
+
+                  <div class="tab-pane fade  show active"" id="nav-choice" role="tabpanel" aria-labelledby="idnav-choice">
+                    <h1> Project </h1>
+                        <p>
+                           Ici les descriptions des choix de visualisation en fonctinos des données
+                        </p>
+                  </div>
+                  <div class="tab-pane fade  show active" id="nav-contact" role="tabpanel" aria-labelledby="idnav-contact">
+                    <h1> Project </h1>
+                        <p>
+                          Ici on se présente rapidement
+                        </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="foot">Mastère Big Data 2020</p>
+                </div>
+            </div>
+        </div>
+      </footer>
+  </body>
+</html>

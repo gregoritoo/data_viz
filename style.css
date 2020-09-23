@@ -1,0 +1,83 @@
+.up-header{
+	background-color : #EBEDEF ;
+	height : 100px
+}
+.end_page{
+	background-color : #EBEDEF ;
+	height : 100px
+}
+.header{
+	background-color: #34495E ;
+	height : 400px
+
+}
+
+.btt{
+	margin-bottom: 20px;
+
+}
+
+.side{
+	background-color : #85929E  ;
+	line-height: 30px;
+	color : black;
+
+}
+
+.nav-link{
+	color : black;
+	font-size: 15px;
+}
+
+.body_class{
+	background-color: #EBEDEF;
+
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #EBEDEF;
+    color: #EBEDEF;
+}
+
+.title{
+	color:black;
+}
+
+.foot{
+	color:black;
+}
+
+.img{
+	max-width:10%;
+    height:auto;
+}
+
+.img2{
+	max-width:100%;
+    height:auto;
+}
+
+.btn{
+
+}
+
+.image_block{
+	background-color:red;
+}
+
+.image_block1{
+	background-color:red;
+}
+
+.image_block2{
+	background-color:red;
+}
+
+body{
+	background-image: url("test2.jpg");
+    width: :100%;
+}
