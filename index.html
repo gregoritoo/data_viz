@@ -9,27 +9,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <title>Data-viz</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
   </head>
   <body>
     <div class="container-fluid up-header">
-      <img class="img" src = "logo.png" alt="My Logo">
+      <img class="img" src = "css/logo.png" alt="My Logo">
+      <img class="img_cars" style="float:right;max-width:6%;color:white;" src = "css/car-crash.png" alt="cars">
     </div>
-      <div class="container-fluid body">
+      <div class="container-fluid rounded body">
         <div class="row">
-          <div class="container-fluid side col-md-2 ">
+          <div class="container-fluid rounded side col-md-2 ">
             <nav>
               <ul class="nav ">
-                <li class="nav-item"><a class="nav-link active" id="idnav-desc" data-toggle="tab" data-target="#nav-desc" role="tab" aria-controls="nav-desc" aria-selected="true"><img class="img_mail" src = "job-seeking.png" alt="mail">   Description du projet</a></li>
+                <li class="nav-item"><a class="nav-link active" id="idnav-desc" data-toggle="tab" data-target="#nav-desc" role="tab" aria-controls="nav-desc" aria-selected="true"><img class="img_mail" src = "css/job-seeking.png" alt="mail">   Description du projet</a></li>
                 
-                <li class="nav-item" ><a class="nav-link" id="idnav-viz" data-toggle="tab" data-target="#nav-viz" role="tab" aria-controls="nav-viz" aria-selected="false"><img class="img_mail" src = "bar-chart.png" alt="mail">    Visualisation des données<li></a></li>
+                <li class="nav-item" ><a class="nav-link" id="idnav-viz" data-toggle="tab" data-target="#nav-viz" role="tab" aria-controls="nav-viz" aria-selected="false"><img class="img_mail" src = "css/bar-chart.png" alt="mail">    Visualisation des données<li></a></li>
        
-                <li class="nav-item" ><a class="nav-link" id="idnav-choice" data-toggle="tab" data-target="#nav-choice" role="tab" aria-controls="nav-choice" aria-selected="false"><img class="img_mail" src = "choice.png" alt="mail">   Descriptions du choix des visualisations</a></li>
+                <li class="nav-item" ><a class="nav-link" id="idnav-choice" data-toggle="tab" data-target="#nav-choice" role="tab" aria-controls="nav-choice" aria-selected="false"><img class="img_mail" src = "css/choice.png" alt="mail">   Descriptions du choix des visualisations</a></li>
           
-                <li class="nav-item"><a class="nav-link" id="idnav-contact" data-toggle="tab" data-target="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><img class="img_mail" src = "mail.png" alt="mail">    Nous contacter </a></li>
+                <li class="nav-item"><a class="nav-link" id="idnav-contact" data-toggle="tab" data-target="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><img class="img_mail" src = "css/mail.png" alt="mail">    Nous contacter </a></li>
               </ul>
             </nav>
           </div>
@@ -37,7 +38,7 @@
             <div class="col-md-10">
               <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade  show active" id="nav-desc" role="tabpanel" aria-labelledby="idnav-desc">
-                  <h1> Description data </h1>
+                  <h1 class="text-center"> Description data </h1>
                     <p>
                       Lorem ipsum dolor sit amet, minim definiebas no sit, ex duo nonumy dicunt. Dolorum tincidunt at sea, ei delicata tractatos vel. Sint utroque in eos, suas velit interesset est ne. Mel tempor utamur neglegentur ei, ea sumo essent inimicus pri. In magna viderer antiopam his, no alii persius vivendum eos.
 
@@ -51,7 +52,7 @@
                     </p>
                 </div>
                 <div class="tab-pane fade show active" id="nav-viz" role="tabpanel" aria-labelledby="idnav-viz">
-                    <h1> Project </h1>
+                    <h1 class="text-center"> Project </h1>
                       <p>
                         Ici les graphs
                       </p>
@@ -94,13 +95,13 @@
                 </div>
 
                   <div class="tab-pane fade  show active"" id="nav-choice" role="tabpanel" aria-labelledby="idnav-choice">
-                    <h1> Project </h1>
+                    <h1 class="text-center"> Project </h1>
                         <p>
                            Ici les descriptions des choix de visualisation en fonctinos des données
                         </p>
                   </div>
                   <div class="tab-pane fade  show active" id="nav-contact" role="tabpanel" aria-labelledby="idnav-contact">
-                    <h1> Project </h1>
+                    <h1 class="text-center"> Project </h1>
                         <p>
                           Ici on se présente rapidement
                         </p>

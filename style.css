@@ -12,6 +12,8 @@
 
 }
 
+
+
 .btt{
 	margin-bottom: 20px;
 
@@ -65,6 +67,13 @@ body{
     height:auto;
 }
 
+.img_cars{
+	max-width:0%;
+    height:auto;
+    position:absolute;
+    top: 90px; left: 750px;
+}
+
 .img2{
 	max-width:100%;
     height:auto;
@@ -78,7 +87,8 @@ body{
 .title_first_page{
 	color:white;
 	display: table-cell;
-  	vertical-align: middle;
+  	transform: translateY(110px);
+
 }
 .img_mail{
 	width:10%;
@@ -101,6 +111,12 @@ body{
 }
 .btn{
 
+}
+
+.center-block{
+	width:35%;
+	height:35%;
+	
 }
 
 .image_block{
@@ -129,4 +145,5 @@ body{
 .footer_acc{
 	background-color:#34495E;
 	min-height: 60px;
+	animation-name: slidein;
 }

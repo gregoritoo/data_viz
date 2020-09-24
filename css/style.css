@@ -1,0 +1,150 @@
+.up-header{
+	background-color : #34495E    ;
+	height : 100px
+}
+.end_page{
+	background-color : #EBEDEF ;
+	height : 100px
+}
+.header{
+	background-color: #34495E   ;
+	height : 400px
+
+}
+
+.btt{
+	margin-bottom: 20px;
+
+}
+
+.side{
+	background-color : #85929E  ;
+	line-height: 30px;
+	color : black;
+
+}
+
+.nav-link{
+	color : black;
+	font-size: 15px;
+}
+
+.body_class{
+	background-color: #EBEDEF;
+
+}
+
+body{
+	background-color:#17A589  ;
+	font-family: 'Trebuchet MS', Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+.Begin{
+	background-color: #34495E    ;
+}
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #EBEDEF;
+    color: #EBEDEF;
+}
+
+.title{
+	color:black;
+}
+
+.foot{
+	color:black;
+}
+
+.img{
+	max-width:10%;
+    height:auto;
+}
+
+.img2{
+	max-width:100%;
+    height:auto;
+}
+
+.Img_acc{
+	max-width:100%;
+
+}
+
+.title_first_page{
+	color:white;
+	display: table-cell;
+  	transform: translateY(110px);
+
+}
+.img_mail{
+	width:10%;
+	height:10%;
+	filter:contrast(1000%); 
+}
+
+.img_acc{
+	width:22%;
+	height:22%;
+
+}
+
+.title_first_page{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.btn{
+
+}
+.center-block{
+	width:35%;
+	height:35%;
+	transform: translateY(100px);
+	animation-name: slidein;
+}
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+.image_block{
+	background-color:red;
+	min-height: 200px;
+
+}
+
+.image_block1{
+	background-color:red;
+	min-height: 200px;
+}
+
+.image_block2{
+	background-color:red;
+	min-height: 200px;
+}
+
+.body_acc{
+    width: :100%;
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+
+.footer_acc{
+	background-color:#34495E;
+	min-height: 60px;
+	animation-name: slidein;
+}
