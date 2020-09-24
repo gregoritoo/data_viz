@@ -23,13 +23,13 @@
           <div class="container-fluid side col-md-2 ">
             <nav>
               <ul class="nav ">
-                <li class="nav-item"><a class="nav-link active" id="idnav-desc" data-toggle="tab" data-target="#nav-desc" role="tab" aria-controls="nav-desc" aria-selected="true">Description du projet</a></li>
-        
-                <li class="nav-item" ><a class="nav-link" id="idnav-viz" data-toggle="tab" data-target="#nav-viz" role="tab" aria-controls="nav-viz" aria-selected="false">Visualisation des données<li></a></li>
+                <li class="nav-item"><a class="nav-link active" id="idnav-desc" data-toggle="tab" data-target="#nav-desc" role="tab" aria-controls="nav-desc" aria-selected="true"><img class="img_mail" src = "job-seeking.png" alt="mail">   Description du projet</a></li>
+                
+                <li class="nav-item" ><a class="nav-link" id="idnav-viz" data-toggle="tab" data-target="#nav-viz" role="tab" aria-controls="nav-viz" aria-selected="false"><img class="img_mail" src = "bar-chart.png" alt="mail">    Visualisation des données<li></a></li>
        
-                <li class="nav-item" ><a class="nav-link" id="idnav-choice" data-toggle="tab" data-target="#nav-choice" role="tab" aria-controls="nav-choice" aria-selected="false">Descriptions du choix des visualisations</a></li>
+                <li class="nav-item" ><a class="nav-link" id="idnav-choice" data-toggle="tab" data-target="#nav-choice" role="tab" aria-controls="nav-choice" aria-selected="false"><img class="img_mail" src = "choice.png" alt="mail">   Descriptions du choix des visualisations</a></li>
           
-                <li class="nav-item"><a class="nav-link" id="idnav-contact" data-toggle="tab" data-target="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> Nous contacter </a></li>
+                <li class="nav-item"><a class="nav-link" id="idnav-contact" data-toggle="tab" data-target="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><img class="img_mail" src = "mail.png" alt="mail">    Nous contacter </a></li>
               </ul>
             </nav>
           </div>
@@ -122,4 +122,21 @@
         </div>
       </footer>
   </body>
+  <script type="text/javascript">
+    $(document).ready(function() {
+        $('html, body').hide();
+
+        if (window.location.hash) {
+            setTimeout(function() {
+                $('html, body').scrollTop(0).show();
+                $('html, body').animate({
+                    scrollTop: $(window.location.hash).offset().top
+                    }, 1000)
+            }, 0);
+        }
+        else {
+            $('html, body').show();
+        }
+    });
+</script>
 </html>
