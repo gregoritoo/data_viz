@@ -76,7 +76,7 @@ var draw_histogram = data => {
 
 };
 
-d3.csv("analyse_data/caracteristiques-2018.csv").then(data => 
+d3.csv("analyse_data/test_histogram.csv").then(data => 
     {
     data.forEach( data => {
         data.mois=+data.mois;
