@@ -1,19 +1,8 @@
-//MonFichierCSV.csv
-//caracteristiques-2018.csv
-// d3.csv("analyse_data/caracteristiques-2018.csv", function( Erreur, csv) {
+// histogram des accidents par mois
 
-//     var data =[]
-
-//     csv.forEach(function(x) {
-//     	//var month = x.mois
-//         var month = x.mois;
-//         data.push(month);          
-//     }); // FIN DE CSV.FOREACH
-// }
-
-var margin = {top: 10, right: 30, bottom: 30, left: 40},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+var width  = 460;
+var height = 400;
+var margin = {top:20,bottom:20,left:100,right:20};
 
 var svg = d3.select("#histogram")
     .append("svg")
@@ -22,12 +11,7 @@ var svg = d3.select("#histogram")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var data_mois = data => data.mois;
-console.log(data_mois);
-
 var draw_histogram = data => {
-
-    console.log(data);  
 
     min = 1;
     max = 13;
@@ -38,25 +22,24 @@ var draw_histogram = data => {
         .range([0, width]);
 
     var histogram = d3.histogram()  
+        .value(function(d) { return d.mois; })  
         .domain(x.domain())
         .thresholds(x.ticks(12));    
 
-    var bins=histogram(data_mois);
+    var bins=histogram(data);
 
 
+    var y = d3.scaleLinear()
+        .range([height, 0]);
+        y.domain([0, d3.max(bins, function(d) { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
+    
+    svg.append("g")
+        .call(d3.axisLeft(y));
 
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x));
 
-    var y = d3.scaleLinear()
-      .range([height, 0])
-      .domain([
-        0,
-        d3.max(bins, function(d) {
-          return d.length;
-        })
-      ]); 
 
     svg.selectAll("rect")
         .data(bins)
@@ -76,10 +59,13 @@ var draw_histogram = data => {
 
 };
 
-d3.csv("analyse_data/test_histogram.csv").then(data => 
+//caracteristiques-2018.csv
+//test_histogram.csv
+d3.csv("analyse_data/caracteristiques-2018.csv").then(data => 
     {
     data.forEach( data => {
         data.mois=+data.mois;
     });
+    console.log(data);  
     draw_histogram(data);
 });
