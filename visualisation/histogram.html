@@ -1,99 +1,70 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <!-- Load d3.js -->
-    <script src="https://d3js.org/d3.v4.js"></script>
-    <!-- Create a div where the graph will take place -->
-    <div id="my_dataviz"></div>
-    <title>LECTURE DE CSV</title>
-</head>
-
-<body> 
- 
-    <h1>Histogramme du nombre d'accident grave par mois en 2018</h1>
-     
-    <script>
-
-        // set the dimensions and margins of the graph
-        var margin = {top: 10, right: 30, bottom: 30, left: 40},
-            width = 460 - margin.left - margin.right,
-            height = 400 - margin.top - margin.bottom;
-
-        // append the svg object to the body of the page
 
 
-        //MonFichierCSV.csv
-        //caracteristiques-2018.csv
-        d3.csv("http://localhost:8000/caracteristiques-2018.csv", function( Erreur, csv) {
+//MonFichierCSV.csv
+//caracteristiques-2018.csv
+d3.csv("http://localhost:8000/caracteristiques-2018.csv", function( Erreur, csv) {
 
-            var data =[]
+    var data =[]
 
-            csv.forEach(function(x) {
-            	//var month = x.mois
-                var month = parseInt(x.mois, 10);
-                data.push(month);          
-            }); // FIN DE CSV.FOREACH
+    csv.forEach(function(x) {
+    	//var month = x.mois
+        var month = parseInt(x.mois, 10);
+        data.push(month);          
+    }); // FIN DE CSV.FOREACH
 
-            min = d3.min(data);
-            max = d3.max(data) + 1;
-            domain = [min,max];
+    min = d3.min(data);
+    max = d3.max(data) + 1;
+    domain = [min,max];
 
-            console.log(data);
-            console.log(min);
-            console.log(max);
-            console.log(domain);
+    console.log(data);
+    console.log(min);
+    console.log(max);
+    console.log(domain);
 
-            var x = d3.scaleLinear()
-                .domain([min, max])
-                .range([0, width]);
+    var x = d3.scaleLinear()
+        .domain([min, max])
+        .range([0, width]);
 
-            var histogram = d3.histogram()
-                .domain(x.domain())
-                .thresholds(x.ticks(12));    
+    var histogram = d3.histogram()
+        .domain(x.domain())
+        .thresholds(x.ticks(12));    
 
-            var bins=histogram(data);
+    var bins=histogram(data);
 
-            var svg = d3.select("body")
-                .append("svg")
-                .attr("width", width + margin.left + margin.right)
-                .attr("height", height + margin.top + margin.bottom)
-                .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    var svg = d3.select("#chart-bar")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-            svg.append("g")
-                .attr("transform", "translate(0," + height + ")")
-                .call(d3.axisBottom(x));
+    svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
 
-            var y = d3.scaleLinear()
-              .range([height, 0])
-              .domain([
-                0,
-                d3.max(bins, function(d) {
-                  return d.length;
-                })
-              ]); 
+    var y = d3.scaleLinear()
+      .range([height, 0])
+      .domain([
+        0,
+        d3.max(bins, function(d) {
+          return d.length;
+        })
+      ]); 
 
-             svg.selectAll("rect")
-                .data(bins)
-                .enter()
-                .append("rect")
-                .attr("x", 1)
-                .attr("transform", function(d) {
-                    return "translate(" + x(d.x0) + "," + y(d.length) + ")";
-                })
-                .attr("width", function(d) {
-                    return x(d.x1) - x(d.x0) - 1;
-                })
-                .attr("height", function(d) {
-                    return height - y(d.length);
-                })
-                .style("fill", "#69b3a2");
+     svg.selectAll("rect")
+        .data(bins)
+        .enter()
+        .append("rect")
+        .attr("x", 1)
+        .attr("transform", function(d) {
+            return "translate(" + x(d.x0) + "," + y(d.length) + ")";
+        })
+        .attr("width", function(d) {
+            return x(d.x1) - x(d.x0) - 1;
+        })
+        .attr("height", function(d) {
+            return height - y(d.length);
+        })
+        .style("fill", "#69b3a2");
 
-        }); // FIN DE D3.CSV
-    </script>
- 
-    <noscript>Vous devez activer JavaScript sur votre lecteur</noscript>
-</body>
-</html>
+}); // FIN DE D3.CSV
