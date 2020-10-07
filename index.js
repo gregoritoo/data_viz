@@ -20,12 +20,12 @@ var render_barchart = data => {
 	var yscale = d3.scaleBand()
 		.domain(data.map(yValue))
 		.range([0,innerHeight])
-		.padding(0.2);
+		.padding(0.4);
 
 
 
 	var g2 =svg2.append("g")
-		.attr('transform','translate('+20+','+margin.top+')');
+		.attr('transform','translate('+110+','+margin.top+')');
 		
 	
 	g2.selectAll('rect').data(data)
@@ -38,9 +38,8 @@ var render_barchart = data => {
 	var yaxis = d3.axisLeft().scale(yscale) ;
 	var xaxis = d3.axisBottom().scale(xscale) ;
 
-
 	g2.append("g").call(xaxis).attr('transform','translate('+0+','+260+')');
-	g2.append("g").call(yaxis);
+	g2.append("g").call(yaxis).attr('transform','translate('+0+','+0+')');
 };
 
 d3.csv('data_atm.csv').then(data => 
@@ -48,6 +47,6 @@ d3.csv('data_atm.csv').then(data =>
 	data.forEach( data => {
 		data.count=+data.count;
 	});
-	console.log(data);
+
 	render_barchart(data);
 });
