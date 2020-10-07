@@ -2,8 +2,8 @@ var width = 700, height = 550;
 
 var path = d3.geoPath();
 
-var projection = d3.geoConicConformal() // Lambert-93
-    .center([2.454071, 46.279229]) // Center on France
+var projection = d3.geoConicConformal() 
+    .center([2.454071, 46.279229]) 
     .scale(2600)
     .translate([width / 2 - 50, height / 2]);
 
@@ -22,7 +22,7 @@ promises.push(d3.json('departement.json'));
 const data=d3.csv('departement.csv').then(data => 
     {
     data.forEach( data => {
-        //data.dep=+data.dep;
+        data.dep=+data.dep -1;
         data.count=+data.count;
     });
     return data;
@@ -30,23 +30,19 @@ const data=d3.csv('departement.csv').then(data =>
 
 promises.push(data);
 Promise.all(promises).then(function(values) {
-    const geojson = values[0]; // Récupération de la première promesse : le contenu du fichier JSON
-    const csv = values[1]; // Récupération de la deuxième promesse : le contenu du fichier csv
+    const geojson = values[0]; 
+    const csv = values[1];
 
     var quantile = d3.scaleQuantile()
-        .domain([0, d3.max(csv, e => +e.count)])
+        .domain([1, d3.max(csv, e => +e.count)])
         .range(d3.range(9));
 
 
 
     var colorScale = d3.scaleLinear()
-        .domain([0, 1])
+        .domain([0, 0.4])
         .range(["#FDEDEC"," #FADBD8", "#F5B7B1" , "#F1948A","#EC7063","#EC7063","#CB4335","#B03A2E","#943126","#78281F"]);
 
-    console.log("hello")
-        
-    
-    console.log(colorScale(4));
 
     var features = deps
         .selectAll("path")
