@@ -1,5 +1,5 @@
 
-var svg2 = d3.select("#chart-bar").append("svg")
+var svg = d3.select("#chart-bar").append("svg")
 				.attr("height",800)
 				.attr("width",800) ;
 var width = 1200;
@@ -24,7 +24,7 @@ var render_barchart = data => {
 
 
 
-	var g2 =svg2.append("g")
+	var g2 =svg.append("g")
 		.attr('transform','translate('+110+','+margin.top+')');
 		
 	
