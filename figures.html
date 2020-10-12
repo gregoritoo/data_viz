@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <title>Data-viz</title>
@@ -62,8 +59,8 @@
                     <h1 class="text-center"> Project </h1>
                       <p>
                         Ici les graphs
-                        </p>
-                    <div class="card shadow mb-4 align-items-stretch h-100">
+                      </p>
+                    <div class="card shadow mb-4">
                       <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
                       </div>
@@ -72,8 +69,6 @@
                         </div>
                       </div>
                     </div>
-
-                    <hr>
                     <div class="card shadow mb-4">
                       <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">Maps</h6>
@@ -83,42 +78,14 @@
                         </div>
                       </div>
                     </div>
-                    <hr>
 
                     <div class="card shadow mb-4">
                       <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Histogram</h6>
-                      </div>
-                      <div class="card-body">
-                        <div id="histogram" style="height: 500px">
-                        </div>
-                      </div>
-                    </div>
-
-                    
-                    <div class="card shadow mb-4">
-                      <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Autres Chart</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Histogramme empilé</h6>
                       </div>
                       <div class="card-body">
                         <div class="chart-bar">
-                          <canvas id="myBarChart3"></canvas>
-                        </div>
-                      </div>
-                    </div>
-                    <hr>
-
-                  <div class="tab-pane fade show active" id="nav-viz" role="tabpanel" aria-labelledby="idnav-viz">
-                    <h1 class="text-center"> Project </h1>
-                      <p>
-                        Ici les graphs
-                      </p>
-                    <div class="card shadow mb-4 align-items-stretch h-100">
-                      <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary"> Histogram </h6>
-                      </div>
-                      <div class="card-body">
-                        <div id="chart-bar" style="height: 300px">
+                          <canvas id="hist_empil" style="height: 500px">
                         </div>
                       </div>
                     </div>
@@ -126,7 +93,6 @@
 
                       Code à mettre ici <code>code_js</code> file.
                 </div>
-
                   <div class="tab-pane fade  show active"" id="nav-choice" role="tabpanel" aria-labelledby="idnav-choice">
                     <h1 class="text-center"> Project </h1>
                         <p>
@@ -150,7 +116,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <p class="foot">Mastère Big Data 2020</p>
+                    <p class="foot" style="color:white;">Mastère Big Data 2020</p>
                 </div>
             </div>
         </div>
@@ -158,5 +124,5 @@
   </body>
   <script src="index.js"></script>
   <script src="maps.js"></script>
-  <script src="histogram.js"></script>
+  <script src="histogram_empile.js"></script>
 </html>
