@@ -1,74 +1,104 @@
+var width = 960,
+    height = 500,
+    radius = Math.min(width, height) / 2;
 
-var width = 700, height = 500;
-// set the dimensions and margins of the graph
-var margin = {top: 10, right: 10, bottom: 30, left: 50} ;
+var color = d3.scaleOrdinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00","white","orange"]);
 
+var arc = d3.arc()
+    .outerRadius(radius - 10)
+    .innerRadius(0);
 
-var svg4 = d3.select("#bubble").append("svg")
-    .attr("width", width )
+var labelArc = d3.arc()
+    .outerRadius(radius - 40)
+    .innerRadius(radius - 40);
+
+var pie = d3.pie()
+    .sort(null)
+    .value(function(d) { return d.count; });
+
+var svg6 = d3.select("#bubble").append("svg")
+    .attr("width", width)
     .attr("height", height)
   .append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-var promises = [];
+d3.csv("group_int.csv").then( data=> {
+  console.log(pie(data))
 
-const data_bubble=d3.csv('join.csv').then(data_bubble => 
-    {
-    data_bubble.forEach( data_bubble => {
-        data_bubble.count=+data_bubble.count ;
-        data_bubble.grav=+data_bubble.grav;
-        data_bubble.secu=+data_bubble.secu;
-    });
-    return data_bubble;
+  var g = svg6.selectAll(".int")
+      .data(pie(data))
+    .enter().append("g")
+      .attr('class','int')
+      .attr("visibility", "hidden");
+
+  g.append("path")
+      .attr("d", arc)
+      .style("fill", d=> color(d.data.MAJ) );
+
+  g.append("text")
+      .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
+      .attr("dy", ".35em")
+      .text(function(d) { return d.data.MAJ; });
 });
 
-promises.push(data_bubble);
 
-Promise.all(promises).then(function(values) {
-  const data_bubble = values[0];
+d3.csv("group_lum.csv").then( data=> {
+  console.log(pie(data))
 
-  
-  // Add X axis
-  var x1 = d3.scaleLinear()
-    .domain([0, d3.max(data_bubble, e => e.grav)])
-    .range([ 0, width ]);
+  var g = svg6.selectAll(".lum")
+      .data(pie(data))
+    .enter().append("g")
+      .attr('class','lum')
+      .attr("visibility", "hidden");
 
+  g.append("path")
+      .attr("d", arc)
+      .style("fill", d=> color(d.data.MAJ) );
 
-
-  svg4.append("g")
-    .attr("transform", "translate(0,470)")
-    .call(d3.axisBottom(x));
-
-  // Add Y axis
-  var y1 = d3.scaleLinear()
-    .domain([0,d3.max(data_bubble, e => e.secu)])
-    .range([ height, 0]);
-
- 
-  svg4.append("g")
-    .call(d3.axisLeft(y));
-
-  // Add a scale for bubble size
-  var z1 = d3.scaleLinear()
-    .domain([d3.min(data_bubble, e => e.count), d3.max(data_bubble, e => e.count)])
-    .range([ 1, 40]);
-
-
-
-  // Add dots
-  svg4.append('g')
-    .selectAll("dot")
-    .data(data_bubble)
-    .enter()
-    .append("circle")
-      .attr("cx", d => x1(+d.grav))
-      .attr("cy", d => y1(+d.secu)-50)
-      .attr("r", d => z1(+d.count)*2)
-      .style("fill", "red")
-      .style("opacity", "0.7")
-      .attr("stroke", "black");
-
-
+  g.append("text")
+      .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
+      .attr("dy", ".35em")
+      .text(function(d) { return d.data.MAJ; });
 });
 
+
+d3.csv("group_atm.csv").then( data=> {
+  console.log(pie(data))
+
+  var g = svg6.selectAll(".atm")
+      .data(pie(data))
+    .enter().append("g")
+      .attr('class','atm')
+      .attr("visibility", "hidden");
+
+  g.append("path")
+      .attr("d", arc)
+      .style("fill", d=> color(d.data.MAJ) );
+
+  g.append("text")
+      .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
+      .attr("dy", ".35em")
+      .text(function(d) { return d.data.MAJ; });
+});
+
+d3.selectAll('.selector')
+      .on('click', function(d) {
+        update(this.id);
+      })
+
+function type(d) {
+  d.count = +d.count;
+  d.MAJ = +d.MAJ;
+  return d;
+}
+
+
+function update(source) {
+    d3.selectAll('.'+'lum').attr("visibility", "hidden")
+    d3.selectAll('.'+'int').attr("visibility", "hidden")
+    d3.selectAll('.'+'atm').attr("visibility", "hidden")
+    d3.selectAll('.'+source).attr("visibility", "")
+    
+    console.log(d3.selectAll('.'+source));
+    }

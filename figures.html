@@ -42,25 +42,27 @@
             <div class="col-md-10">
               <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade  show active" id="nav-desc" role="tabpanel" aria-labelledby="idnav-desc">
-                  <h1 class="text-center"> Description data </h1>
-                    <p>
-                      Lorem ipsum dolor sit amet, minim definiebas no sit, ex duo nonumy dicunt. Dolorum tincidunt at sea, ei delicata tractatos vel. Sint utroque in eos, suas velit interesset est ne. Mel tempor utamur neglegentur ei, ea sumo essent inimicus pri. In magna viderer antiopam his, no alii persius vivendum eos.
-
-                      Cum ad aeque euripidis, per ex noluisse assueverit. Te eos solet consetetur appellantur, ne vitae populo his. Invenire honestatis at sed, tempor integre tincidunt sea an. Et ullum fastidii vel, mea docendi oporteat tractatos an, zril tollit atomorum mea ad.
-
-                      Vix ad facilisis deterruisset, te justo timeam voluptua mea. Et magna volumus pri, eu eos aeterno eligendi theophrastus. Vidit invenire patrioque eu vix, an sed dicit commodo virtute, cum no verear officiis adversarium. Eu vis antiopam senserit. Dolorem suavitate ius ei, per ea exerci blandit.
-
-                      Quo id autem ludus dolores, sed vocibus torquatos ne. Altera labores ad sit, nullam dissentias efficiantur te est, eu quodsi expetenda usu. Ex ius ullum copiosae iracundia. Vim et nonumes temporibus, cu vis porro signiferumque. Cu est adhuc habemus.
-
-                      Id his putent dissentiunt theophrastus, dicat everti mea an. Ut pro veri harum, est cu timeam aperiri. Inani forensibus qui id, ut cetero fabellas posidonium vis. Assum conceptam ne pri, id eam falli lobortis, cum ea tale ancillae persecuti. Te vim error partem splendide, ei qui enim expetenda. 
+                  <h1 class="text-center"> Description du projet </h1>
+                    <p class="para">Ce site vous permet de comprendre visuellement les accidents de la route en France de 2005 à 2018 grâce à l’étude de différents paramètres qui donnent plusieurs premières perspectives d’analyse approfondie.</p>
+                    <p class="para">Nous avons choisi d’utiliser les données partagées en libre accès par l’Observatoire national interministériel de la sécurité routière, disponibles sur data.gouv.fr. Ce sont précisément les Bulletins d’Analyse des Accidents Corporels de la Circulation (BAAC) qui ont fait l’objet de notre étude. Comme son nom l’indique, ce fichier recense les accidents qui ont eu lieu sur le territoire français de 2005 à 2018. Ces accidents sont assortis de valeurs paramétriques relatant des circonstances de l’accident.</p>
+                    <p class="para">La sécurité routière est un domaine d’étude où nombre de paramètres doivent être pris en compte pour déterminer les circonstances aggravantes qui peuvent amener les utilisateurs à l’accident. Les fichiers BAAC regroupent donc un certain nombre de paramètres que nous pouvons résumer dans les catégories suivantes :<br />
+                      <ul>
+                        <li>Caractéristiques (date, météo)</li>
+                        <li>Géographiques et routiers</li>
+                        <li>Véhiculaires</li>
+                        <li>Usagers</li>
+                      </ul>
                     </p>
+                    <p class="para">Nous avons choisi de commencer par des visualisations intuitives qui imagent des facteurs aggravants pouvant être la cause d’accidents routiers: <a href="nav-viz">Visualisation des données</a><br /> 
+                      Les détails paramétriques de chaque visualisation sont détaillés ici : <a href="nav-choice">Description du choix des visualisations</a>.</p>
+                    <p class="para">Pour en connaitre plus sur les 3 créateurs de ce projet et échanger sur les problèmatiques de la sécurité routière nous vous invitons chaleureusement à nous contacter : <a href="nav-contact">Contact</a></p>
                 </div>
                 <div class="tab-pane fade show active" id="nav-viz" role="tabpanel" aria-labelledby="idnav-viz">
                     <h1 class="text-center"> Project </h1>
 
                     <div class="card shadow mb-4">
                       <div class="card-header py-3" style=" background-color: #A9CCE3; ">
-                        <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                        <h6 class="m-0 font-weight-bold text-primary text-center">BAR CHART</h6>
                       </div>
                       <div class="card-body" style="background-color: #D6EAF8;">
                         <div id="chart-bar" style="height: 300px">
@@ -69,7 +71,7 @@
                     </div>
                     <div class="card shadow mb-4">
                       <div class="card-header py-3" style=" background-color: #A9CCE3; ">
-                        <h6 class="m-0 font-weight-bold text-primary">Maps</h6>
+                        <h6 class="m-0 font-weight-bold text-primary text-center">MAPS</h6>
                       </div>
                       <div class="card-body" style="background-color: #D6EAF8;">
                         <div id="map" style="height: 500px">
@@ -78,7 +80,7 @@
                     </div>
                     <div class="card shadow mb-4">
                       <div class="card-header py-3" style=" background-color: #A9CCE3; ">
-                        <h6 class="m-0 font-weight-bold text-primary">HEATMAP</h6>
+                        <h6 class="m-0 font-weight-bold text-primary text-center">HEATMAP</h6>
                       </div>
                       <div class="card-body" style="background-color: #D6EAF8;">
                         <div class="heatmap" >
@@ -91,7 +93,10 @@
                         <h6 class="m-0 font-weight-bold text-primary">Bubble</h6>
                       </div>
                       <div class="card-body" style="background-color: #D6EAF8;">
-                        <div class="bubbles" >
+                        <div class="bubble" >
+                          <button onclick="update('lum')">Luminosité</button>
+                          <button onclick="update('int')">Intempéries</button>
+                          <button onclick="update('atm')">Atmosphère </button>
                           <div id="bubble" style="height: 500px;width: 1000px"></div>
                         </div>
                       </div>
@@ -105,9 +110,17 @@
                         </p>
                   </div>
                   <div class="tab-pane fade  show active" id="nav-contact" role="tabpanel" aria-labelledby="idnav-contact">
-                    <h1 class="text-center"> Project </h1>
+                  <h1 class="text-center"> Project </h1>
                         <p>
-                          Ici on se présente rapidement
+                          Antoine Reynaert, Grégory Scarfato et Hugues d’Allest sont 3 étudiants du MSc Data Science à Ensimag et Grenoble EM. 
+                        </p>
+                        <p>Sensibilisés aux problématiques de la sécurité routière en France nous avons voulu faire notre TD autour de ce sujet.</p>
+                        <p>Nous vous invitons à nous contacter si vous avez plus de questions concernant ce projet :
+                          <ul>
+                            <li>Antoine Reynaert : antoine.reynaert@grenoble-inp.org</li>
+                            <li>Grégory Scarfato : gregory.scarfato@grenoble-inp.org</li>
+                            <li>Hugues d’Allest : Hugues.d-allest1@grenoble-inp.org</li>
+                          </ul>
                         </p>
                   </div>
                 </div>
@@ -130,4 +143,5 @@
   <script src="index.js"></script>
   <script src="maps.js"></script>
   <script src="heatmap.js"></script>
+  <script src="bubble.js"></script>
 </html>

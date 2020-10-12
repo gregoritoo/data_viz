@@ -1,4 +1,3 @@
-
 var svg = d3.select("#chart-bar").append("svg")
 				.attr("height",800)
 				.attr("width",800) ;

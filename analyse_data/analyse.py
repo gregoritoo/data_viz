@@ -61,8 +61,7 @@ df15=df[df["secu"]==92]
 df15["secu"]="Non determinable"
 df=pd.concat([df1,df2,df3,df4,df5,df5,df6,df7,df8,df9,df10,df11,df12,df13,df14,df15], ignore_index=True)
 print(df)
-df.to_csv("join.csv")"""
-
+df.to_csv("join.csv")
 
 df=pd.read_csv('caracteristiques-2018.csv',sep=',',encoding='latin-1')
 df["count"]=[1]*len(df)
@@ -70,3 +69,12 @@ print(df)
 df=df.groupby(["jour","mois","an"]).sum()
 print(df)
 df.to_csv("time.csv")
+"""
+
+
+df=pd.read_csv('caracteristiques-2018.csv',sep=',',encoding='latin-1')
+df["count"]=[1]*len(df)
+print(df)
+df=df.groupby(["lum"]).sum()
+print(df)
+df.to_csv("group_lum.csv")
