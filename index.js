@@ -9,7 +9,9 @@ var height = 300;
 var margin = {top:20,bottom:20,left:600,right:20} ;
 
 var innerWidth = width - margin.left - margin.right ;
+
 var innerHeight = height - margin.top - margin.bottom ;
+
 var xValue = data => data.count;
 var yValue = data => data.atm;
 var render_barchart = data => {

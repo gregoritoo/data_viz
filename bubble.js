@@ -1,7 +1,7 @@
 
-var width = 1000, height = 550;
+var width = 700, height = 500;
 // set the dimensions and margins of the graph
-var margin = {top: 10, right: 20, bottom: 30, left: 50} ;
+var margin = {top: 10, right: 10, bottom: 30, left: 50} ;
 
 
 var svg4 = d3.select("#bubble").append("svg")
@@ -30,39 +30,45 @@ Promise.all(promises).then(function(values) {
 
   
   // Add X axis
-  var x = d3.scaleLinear()
+  var x1 = d3.scaleLinear()
     .domain([0, d3.max(data_bubble, e => e.grav)])
     .range([ 0, width ]);
 
+
+
   svg4.append("g")
-    .attr("transform", "translate(0," + height + ")")
+    .attr("transform", "translate(0,470)")
     .call(d3.axisBottom(x));
 
   // Add Y axis
-  var y = d3.scaleLinear()
+  var y1 = d3.scaleLinear()
     .domain([0,d3.max(data_bubble, e => e.secu)])
     .range([ height, 0]);
+
+ 
   svg4.append("g")
     .call(d3.axisLeft(y));
 
   // Add a scale for bubble size
-  var z = d3.scaleLinear()
+  var z1 = d3.scaleLinear()
     .domain([d3.min(data_bubble, e => e.count), d3.max(data_bubble, e => e.count)])
     .range([ 1, 40]);
 
 
+
   // Add dots
- svg4.append('g')
-    .selectAll("circle.dot")
+  svg4.append('g')
+    .selectAll("dot")
     .data(data_bubble)
     .enter()
     .append("circle")
-      .attr("cx", d => x(+d.catv))
-      .attr("cy", d => y(+d.grav))
-      .attr("r", d => z(+d.count))
+      .attr("cx", d => x1(+d.grav))
+      .attr("cy", d => y1(+d.secu)-50)
+      .attr("r", d => z1(+d.count)*2)
       .style("fill", "red")
       .style("opacity", "0.7")
       .attr("stroke", "black");
-      
+
+
 });
 

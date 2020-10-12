@@ -76,14 +76,23 @@
                         </div>
                       </div>
                     </div>
-
+                    <div class="card shadow mb-4">
+                      <div class="card-header py-3" style=" background-color: #A9CCE3; ">
+                        <h6 class="m-0 font-weight-bold text-primary">HEATMAP</h6>
+                      </div>
+                      <div class="card-body" style="background-color: #D6EAF8;">
+                        <div class="heatmap" >
+                        <div id="heatmap" style="height: 500px"></div>
+                      </div>
+                      </div>
+                    </div>
                     <div class="card shadow mb-4">
                       <div class="card-header py-3" style=" background-color: #A9CCE3; ">
                         <h6 class="m-0 font-weight-bold text-primary">Bubble</h6>
                       </div>
                       <div class="card-body" style="background-color: #D6EAF8;">
-                        <div class="bubble" >
-                          <canvas id="bubble" style="height: 500px"></canvas>
+                        <div class="bubbles" >
+                          <div id="bubble" style="height: 500px;width: 1000px"></div>
                         </div>
                       </div>
                     </div>
@@ -120,5 +129,5 @@
   </body>
   <script src="index.js"></script>
   <script src="maps.js"></script>
-  <script src="bubble.js"></script>
+  <script src="heatmap.js"></script>
 </html>
