@@ -72,9 +72,9 @@ df.to_csv("time.csv")
 """
 
 
-df=pd.read_csv('caracteristiques-2018.csv',sep=',',encoding='latin-1')
-df["count"]=[1]*len(df)
-print(df)
-df=df.groupby(["lum"]).sum()
-print(df)
-df.to_csv("group_lum.csv")
+df=pd.read_csv('route.csv',sep=';',encoding='latin-1')
+df1 = df.dropna(axis=1)
+print(df1)
+print(df1.describe())
+	
+
