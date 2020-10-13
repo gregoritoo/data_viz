@@ -157,6 +157,11 @@ body{
 
 }
 
+.tableau-variable-visuelle{
+	width:60%;
+	height:50%;
+}
+
 .center-block{
 	width:35%;
 	height:35%;

@@ -17,12 +17,12 @@
   <body>
     <div class="container-fluid Begin ">
       <img class="img" src = "css/logo.png" alt="My Logo">
-      <p class="text" style="max-width:30%;color:white;font-size:24px;position:relative;top: 15px; left: 850px;display: inline-block;
-    vertical-align: top; font-weight:bold;">HOME</p>
+     <p class="text" style="max-width:30%;color:white;font-size:24px;position:relative;top: 15px; left: 850px;display: inline-block;
+    vertical-align: top; font-weight:bold;"><a href="http://localhost:8000/" style="color:#E0E9F1;">HOME  </a></p>
       <p class="text" style="max-width:30%;color:white;font-size:24px;position:relative;top: 15px; left: 900px;display: inline-block;
-    vertical-align: top; font-weight:bold;">ABOUT</p>
+    vertical-align: top; font-weight:bold;"><a href="#nav-contact" style="color:#E0E9F1;" > ABOUT </a></p>
       <p class="text" style="max-width:30%;color:white;font-size:24px;position: relative;top: 15px; left: 950px;display: inline-block;
-    vertical-align: top; font-weight:bold;">VISUALISATION</p>
+    vertical-align: top; font-weight:bold;"><a href="http://localhost:8000/figures.html" style="color:#E0E9F1;" > VISUALISATION </a></p>
       <div class="container-fluid rounded body">
         <div class="row">
           <div class="container-fluid rounded side col-md-2 ">
@@ -53,34 +53,34 @@
                         <li>Usagers</li>
                       </ul>
                     </p>
-                    <p class="para">Nous avons choisi de commencer par des visualisations intuitives qui imagent des facteurs aggravants pouvant être la cause d’accidents routiers: <a href="nav-viz">Visualisation des données</a><br /> 
-                      Les détails paramétriques de chaque visualisation sont détaillés ici : <a href="nav-choice">Description du choix des visualisations</a>.</p>
-                    <p class="para">Pour en connaitre plus sur les 3 créateurs de ce projet et échanger sur les problèmatiques de la sécurité routière nous vous invitons chaleureusement à nous contacter : <a href="nav-contact">Contact</a></p>
+                    <p class="para">Nous avons choisi de commencer par des visualisations intuitives qui imagent des facteurs aggravants pouvant être la cause d’accidents routiers: <a href="#nav-viz">Visualisation des données</a><br /> 
+                      Les détails paramétriques de chaque visualisation sont détaillés ici : <a href="#nav-choice">Description du choix des visualisations</a>.</p>
+                    <p class="para">Pour en connaitre plus sur les 3 créateurs de ce projet et échanger sur les problèmatiques de la sécurité routière nous vous invitons chaleureusement à nous contacter : <a href="#nav-contact">Contact</a></p>
                 </div>
                 <div class="tab-pane fade show active" id="nav-viz" role="tabpanel" aria-labelledby="idnav-viz">
-                    <h1 class="text-center"> Project </h1>
+                    <h1 class="text-center"> Représentations graphiques </h1>
 
-                    <div class="card shadow mb-4" style="width: 1000px">
+                    <div class="card shadow mb-4">
                       <div class="card-header py-3" style=" background-color: #A9CCE3; ">
-                        <h6 class="m-0 font-weight-bold text-primary text-center">REPARTITION DES ACCIDENTS PAR MOIS ET SELON LA LUMINOSITÉ SUR L'ANNÉE 2018 </h6>
+                        <h6 class="m-0 font-weight-bold text-primary text-center"><a href="#des-chartbar">STACKED BAR CHART</a></h6>
                       </div>
                       <div class="card-body" style="background-color: #D6EAF8;">
                         <div id="chart-bar" style="height: 600px">
                         </div>
                       </div>
                     </div>
-                    <div class="card shadow mb-4" style="width: 1000px">
+                    <div class="card shadow mb-4">
                       <div class="card-header py-3" style=" background-color: #A9CCE3; ">
-                        <h6 class="m-0 font-weight-bold text-primary text-center">LOCALISATION DES ACCIDENTS</h6>
+                        <h6 class="m-0 font-weight-bold text-primary text-center"><a href="#des-geo">GEOGRAPHICAL HEATMAP</a></h6>
                       </div>
                       <div class="card-body" style="background-color: #D6EAF8;">
                         <div id="map" style="height: 500px">
                         </div>
                       </div>
                     </div>
-                    <div class="card shadow mb-4" style="width: 1000px">
+                    <div class="card shadow mb-4">
                       <div class="card-header py-3" style=" background-color: #A9CCE3; ">
-                        <h6 class="m-0 font-weight-bold text-primary text-center">NOMBRES D'ACCIDENTS PAR JOURS</h6>
+                        <h6 class="m-0 font-weight-bold text-primary text-center"><a href="#des-cal">CALENDAR HEATMAP</a></h6>
                       </div>
                       <div class="card-body" style="background-color: #D6EAF8;">
                         <div class="heatmap" >
@@ -88,14 +88,14 @@
                       </div>
                       </div>
                     </div>
-                    <div class="card shadow mb-4" style="width: 1000px">
+                    <div class="card shadow mb-4">
                       <div class="card-header py-3" style=" background-color: #A9CCE3; ">
-                        <h6 class="m-0 font-weight-bold text-primary text-center">PROPORTIONS DES DIFFERENTES CLASSES DANS LES ACCIDENTS</h6>
+                        <h6 class="m-0 font-weight-bold text-primary text-center"><a href="#des-pie">PIE CHARTS</a></h6>
                       </div>
                       <div class="card-body" style="background-color: #D6EAF8;">
                         <div class="bubble" >
                           <button onclick="update('lum')">Luminosité</button>
-                          <button onclick="update('int')">Intersection</button>
+                          <button onclick="update('int')">Intempéries</button>
                           <button onclick="update('atm')">Atmosphère </button>
                           <div id="bubble" style="height: 500px;width: 1000px"></div>
                         </div>
@@ -104,16 +104,83 @@
                     <hr>
                 </div>
                   <div class="tab-pane fade  show active"" id="nav-choice" role="tabpanel" aria-labelledby="idnav-choice">
-                    <h1 class="text-center"> Project </h1>
-                        <p>
-                           Ici les descriptions des choix de visualisation en fonctinos des données
-                        </p>
+                    <h1 class="text-center"> Description du choix des visualisations </h1>
+                    <h6 class="m-0 font-weight-bold text-primary" id="des-chartbar"><a href="http://localhost:8000/figures.html#chart-bar" style="font-size: 30px">Stacked bar chart</a></h6>
+                      <p class="para">Ce graphique reprend le nombre d’accidents mensuels et découpe chaque barre selon la luminosité du ciel à l’heure de l’accident.</p>
+                      <p class="para">Le premier coup d’œil permet de constater ou non des changements au niveau des accidents selon les mois.</p>
+                      <p class="para">Le lecteur peut ensuite s’intéresser aux paramètres lumineux s’il souhaite comparer 2 mois ou alors étudier une variable lumineuse dans son ensemble : les accidents sont-ils constants lorsqu’il fait jour ?</p>
+                      <p class="para">Une analyse saisonnière peut aussi débuter par ce genre de graphique puisqu’on peut à la fois observer les fluctuations globales selon les saisons mais aussi les changements météorologique induits qui influent bien évidemment sur les paramètres de luminosité. </p>
+                      <div class="container-img">
+                        <img class="tableau-variable-visuelle" src="css/Tab-barchart.png" alt="Matrice échelle de mesure variable visuelle" />
+                      </div>
+                    <h6 class="m-0 font-weight-bold text-primary" id="des-geo"><a href="http://localhost:8000/figures.html#map" style="font-size: 30px">Geographical Heatmap</a></h6>
+                      <p class="para">A l’évidence, cette carte représente le nombre d’accidents annuels selon leur localisation départementale sur le territoire français. Il s’agit d’une analyse simple, croisant 2 variables, qui peut visuellement se traduire en une carte très lisible pour le lecteur grâce à l’échelle des couleurs.
+                      </p>
+                      <p class="para">En effet, la cartographie est quelque chose de très intuitif car nous y sommes tous confrontés et cela permet au lecteur d’avoir un premier regard très rapide sur une situation globale.
+                      </p>
+                      <p class="para">A partir de cette carte on peut facilement entrevoir des axes de recherches analytiques plus poussés sur la problématique générale si l’on s’arrête sur les « hotspots » de cette dernière :
+                        <ul>
+                          <li>La Savoie (74) est une zone maximale, on peut conjecturer qu’une analyse sur l’incidence du terrain aurait un intérêt. C’est aussi éventuellement le cas des départements du Massif Central et de la Corse.</li>
+                          <li>L’Ile-de-France et les Bouches du Rhône, la Gironde et les Midi-Pyrénées et ressortent aussi beaucoup, à l’évidence la concentration des populations explique cet échelonnage des accidents mais on peut se poser la question quant à l’influence de la complexité du trafic routier sur le taux de risque accidentel.</li>
+                          <li>3 zones frontalières semblent aussi être plus touchées que les autres territoires (Allemagne, Italie, Espagne). Le trafic routier et les changements de règles entrainent-elles un effet de dangerosité sur les routes ?</li>
+                        </ul>
+                      </p>
+                      <div class="container-img">
+                        <img class="tableau-variable-visuelle" src="css/Tab-geo.png" alt="Matrice échelle de mesure variable visuelle" />
+                      </div>
+                    <h6 class="m-0 font-weight-bold text-primary" id="des-cal"><a href="http://localhost:8000/figures.html#heatmap" style="font-size: 30px">Calendar Heatmap</a></h6>
+                      <p class="para">Cette visualisation est une représentation calendaire du nombre d’accidents journaliers recensés sur le territoire français. Tout comme pour la représentation cartographique, ce choix de visualisation permet de compiler un grand ensemble de données (365 jours étudiés) dans un format compact et clair se servant à nouveau d’une échelle de couleur.</p>
+                      <p class="para">Tout comme la cartographie, la grande majorité des gens sont familier avec la lecture d’un calendrier. Nous avons donc ici un graphe simple à lire pouvant apporter une comprenhension rapide d'un enjeu basique d'étude.</p>
+                      <div class="container-img">
+                        <img class="tableau-variable-visuelle" src="css/Tab-cal.png" alt="Matrice échelle de mesure variable visuelle" />
+                      </div>
+                    <h6 class="m-0 font-weight-bold text-primary" id="des-pie"><a href="http://localhost:8000/figures.html#bubble" style="font-size: 30px">Pie Charts</a></h6>
+                      <p class="para">Le diagramme circulaire est intéressant s’il l’on souhaite étudier répartitions des catégories d’une variable en particulier. Il s'agit d'un outil très simple à manipuler et à comprendre, l'autre versant de la pièce est que l'information qui est transmise dans ce genre de représentation est intraséquement limitée.
+
+                      </p>
+                      <p class="para">Nous avons donc voulu donner 3 exemples de données avec leurs variations paramètriques où ce diagramme est utile :</p>
+                        <ul>
+                          <li>Luminosité</li>
+                          <ul>
+                            <li>Plein jour</li>
+                            <li>Crépuscule ou Aube</li>
+                            <li>Nuit sans éclairage</li>
+                            <li>Nuit sans éclairage public allumé</li>
+                            <li>Nuit avec éclairage public allumé</li>
+                          </ul>
+                          <li>Les intersections routières</li>
+                          <ul>
+                            <li>Pas d'intersections</li>
+                            <li>Intersection en X</li>
+                            <li>Intersection en T</li>
+                            <li>Intersection en Y</li>
+                            <li>Intersection à plus de 4 branches</li>
+                            <li>Giratoire</li>
+                            <li>Place</li>
+                            <li>Passage à niveau</li>
+                            <li>Autre intersection</li>
+                          </ul>
+                          <li>Les conditions météorologiques</li>
+                          <ul>
+                            <li>Normales</li>
+                            <li>Pluie légère</li>
+                            <li>Pluie forte</li>
+                            <li>Neige ou grêle</li>
+                            <li>Brouillard ou fumée</li>
+                            <li>Vent fort et tempêtes</li>
+                            <li>Temps éblouissant</li>
+                            <li>Temps couvert</li>
+                            <li>Autre</li>
+                          </ul>
+                        </ul>
+                      </p>
+                      <div class="container-img">
+                        <img class="tableau-variable-visuelle" src="css/Tab-pie.png" alt="Matrice échelle de mesure variable visuelle" />
+                      </div>
                   </div>
                   <div class="tab-pane fade  show active" id="nav-contact" role="tabpanel" aria-labelledby="idnav-contact">
-                  <h1 class="text-center"> Project </h1>
-                        <p>
-                          Antoine Reynaert, Grégory Scarfato et Hugues d’Allest sont 3 étudiants du MSc Data Science à Ensimag et Grenoble EM. 
-                        </p>
+                  <h1 class="text-center"> Contact </h1>
+                        <p>Antoine Reynaert, Grégory Scarfato et Hugues d’Allest sont 3 étudiants du MSc Data Science à Ensimag et Grenoble EM. </p>
                         <p>Sensibilisés aux problématiques de la sécurité routière en France nous avons voulu faire notre TD autour de ce sujet.</p>
                         <p>Nous vous invitons à nous contacter si vous avez plus de questions concernant ce projet :
                           <ul>

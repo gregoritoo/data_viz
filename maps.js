@@ -15,7 +15,8 @@ var svg3 = d3.select('#map').append("svg")
     .attr("height", height)
     .attr("class", "Blues");
 
-var deps = svg3.append("g");
+var deps = svg3.append("g")
+    .attr('transform', 'translate(200)');
 
 var promises = [];
 promises.push(d3.json('departement.json'));
@@ -57,7 +58,7 @@ Promise.all(promises).then(function(values) {
         .style("fill",csv => colorScale(quantile(+csv.count)));
     
     var legend = svg3.append('g')
-        .attr('transform', 'translate(525, 150)')
+        .attr('transform', 'translate(725, 150)')
         .attr('id', 'legend');          
 
     legend.selectAll('.colorbar')
