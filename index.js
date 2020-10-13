@@ -1,4 +1,4 @@
-var margin = {top: 60, right: 40, bottom: 0, left: 50},
+var margin = {top: 60, right: 40, bottom: 0, left: 80},
     width = 1000,
     height = 600 ;
     keys = ["lum1", "lum2", "lum3", "lum4", "lum5"],
@@ -18,7 +18,7 @@ var svg = d3.select("#chart-bar").append("svg")
 d3.csv('mois_lum.csv').then(data => {
 
 
-        var stack = d3.stack()
+    var stack = d3.stack()
         .keys(keys)
         .order(d3.stackOrderNone)
         .offset(d3.stackOffsetNone);
@@ -73,4 +73,40 @@ d3.csv('mois_lum.csv').then(data => {
             .attr("y", d => y(d[1]))
             .attr("height", d => height - y(d.data.lum1- d.data.mois));
 
+    addLegend(colors);
+
 });
+
+function addLegend(colors) {
+
+
+    var keysDescription=["Plein jour","Crépuscule ou aube","Nuit sans éclairage public","Nuit avec éclairage public non allumé", "Nuit avec éclairage public allumé"];
+
+    let reverseColors = colors.reverse(); // Pour présenter les catégories dans le même sens qu'elles sont utilisées
+    let reverseKeysDescription = keysDescription.reverse();
+
+    let legend = svg.append('g')
+        .attr('transform', 'translate(10, 20)'); // Représente le point précis en haut à gauche du premier carré de couleur
+        
+    // Pour chaque couleur, on ajoute un carré toujours positionné au même endroit sur l'axe X et décalé en fonction de la 
+    // taille du carré et de l'indice de la couleur traitée sur l'axe Y
+    legend.selectAll()
+        .data(reverseColors)
+        .enter().append('rect')
+            .attr('height', legendCellSize + 'px')
+            .attr('width', legendCellSize + 'px')
+            .attr('x', 5)
+            .attr('y', (d,i) => i * legendCellSize)
+            .style("fill", d => d);
+    
+    // On procéde de la même façon sur les libellés avec un positionement sur l'axe X de la taille des carrés 
+    // à laquelle on rajoute 10 px de marge
+    legend.selectAll()
+        .data(reverseKeysDescription)
+        .enter().append('text')
+            .attr("transform", (d,i) => "translate(" + (legendCellSize + 10) + ", " + (i * legendCellSize) + ")")
+            .attr("dy", legendCellSize / 1.6) // Pour centrer le texte par rapport aux carrés
+            .style("font-size", "13px")
+            .style("fill", "grey")
+            .text(d => d);
+}
