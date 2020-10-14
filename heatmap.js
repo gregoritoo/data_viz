@@ -51,7 +51,7 @@ svg5.append("text")
   .text("Jour");
 
 
-d3.csv('time.csv').then(data => {
+d3.csv('csv/time.csv').then(data => {
   
   // Build color scale
   var myColor = d3.scaleLinear()

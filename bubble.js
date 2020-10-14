@@ -24,7 +24,7 @@ var svg6 = d3.select("#bubble").append("svg")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
     
 
-d3.csv("group_int.csv").then( data=> {
+d3.csv("csv/group_int.csv").then( data=> {
   console.log(pie(data))
 
   var g = svg6.selectAll(".int")
@@ -103,7 +103,7 @@ d3.csv("group_int.csv").then( data=> {
 });
 
 
-d3.csv("group_lum.csv").then( data=> {
+d3.csv("csv/group_lum.csv").then( data=> {
   console.log(pie(data))
 
   var g = svg6.selectAll(".lum")
@@ -182,7 +182,7 @@ d3.csv("group_lum.csv").then( data=> {
 });
 
 
-d3.csv("group_atm.csv").then( data=> {
+d3.csv("csv/group_atm.csv").then( data=> {
   console.log(pie(data))
 
   var g = svg6.selectAll(".atm")

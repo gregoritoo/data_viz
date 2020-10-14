@@ -15,7 +15,7 @@ var svg = d3.select("#chart-bar").append("svg")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv('mois_lum.csv').then(data => {
+d3.csv('csv/mois_lum.csv').then(data => {
 
 
     var stack = d3.stack()
