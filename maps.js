@@ -9,20 +9,20 @@ var projection = d3.geoConicConformal()
 
 path.projection(projection);
 
-var svg = d3.select('#map').append("svg")
+var svg3 = d3.select('#map').append("svg")
     .attr("id", "svg")
     .attr("width", width)
     .attr("height", height)
     .attr("class", "Blues");
 
-var deps = svg.append("g");
+var deps = svg3.append("g");
 
 var promises = [];
 promises.push(d3.json('departement.json'));
-const data=d3.csv('departement.csv').then(data => 
+const data=d3.csv('csv/departement.csv').then(data => 
     {
     data.forEach( data => {
-        data.dep=+data.dep -1;
+        data.dep=+data.dep ;
         data.count=+data.count;
     });
     return data;
@@ -33,15 +33,15 @@ Promise.all(promises).then(function(values) {
     const geojson = values[0]; 
     const csv = values[1];
 
+
     var quantile = d3.scaleQuantile()
-        .domain([1, d3.max(csv, e => +e.count)])
+        .domain([1, d3.max(csv, csv => +csv.count)])
+
         .range(d3.range(9));
 
-
-
     var colorScale = d3.scaleLinear()
-        .domain([0, 0.4])
-        .range(["#FDEDEC"," #FADBD8", "#F5B7B1" , "#F1948A","#EC7063","#EC7063","#CB4335","#B03A2E","#943126","#78281F"]);
+        .domain([0, 0.3])
+        .range(["#f7fcf5","#e5f5e0","#c7e9c0","#a1d99b","#74c476","#41ab5d","#238b45","#006d2c","#00441b"]);
 
 
     var features = deps
@@ -52,49 +52,55 @@ Promise.all(promises).then(function(values) {
         .attr('id', d => "d" + d.properties.CODE_DEPT)
         .attr("d", path)
         .data(csv)
-        .attr("class", csv => "q" + quantile(csv.count) + "-9")
-        .style("fill",csv => colorScale(quantile(+csv.count)));
-                
 
-    var legend = svg.append('g')
+        .attr("class", csv => "q" + quantile(+csv.count) + "-9")
+        .style("fill",csv => colorScale(quantile(+csv.count)));
+    
+    var legend = svg3.append('g')
+
         .attr('transform', 'translate(525, 150)')
-        .attr('id', 'legend');
+        .attr('id', 'legend');          
 
     legend.selectAll('.colorbar')
         .data(d3.range(9))
         .enter().append('svg:rect')
-        .attr('y', d => d * 20 + 'px')
-        .attr('height', '20px')
-        .attr('width', '20px')
-        .attr('x', '0px')
-        .attr("class", d => "d" + d + "-9")
-        .style("fill",d => colorScale(d));
+
+            .attr('y', d => d * 20 + 'px')
+            .attr('height', '20px')
+            .attr('width', '20px')
+            .attr('x', '0px')
+            .attr("class", d => "q" + d + "-9")
+            .style("fill",d => colorScale(d));
 
 
     var legendScale = d3.scaleLinear()
         .domain([0, d3.max(csv, e => +e.count)])
         .range([0, 9 * 20]);
 
-    
- 
-    var legendAxis = svg.append("g")
+    var legendAxis = svg3.append("g")
+
         .attr('transform', 'translate(550, 150)')
         .call(d3.axisRight(legendScale).ticks(6));
 
+    var div = d3.select("body").append("div")   
+        .attr("class", "tooltip")               
+        .style("opacity", 0);
 
+    
 
     csv.forEach(function(e,i) {
-    
     d3.select("#d"+e.dep)
-        
+
         .on("mouseover", function(d) {
             div.transition()        
                 .duration(200)      
                 .style("opacity", .9);
             div.html("<b>Département : </b>" + e.dep + "<br>"
                     + "<b>Population : </b>" + e.count + "<br>")
-                .style("left", (d3.event.pageX + 30) + "px")     
-                .style("top", (d3.event.pageY - 30) + "px");
+
+                .style("left", (event.pageX + 30) + "px")     
+                .style("top", (event.pageY - 30) + "px");
+
         })
         .on("mouseout", function(d) {
                 div.style("opacity", 0);
@@ -110,11 +116,6 @@ d3.select("select").on("change", function() {
 });
 
 });
-
-
-
-
-
 
 
 

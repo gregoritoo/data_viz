@@ -154,6 +154,13 @@ body{
 
 }
 
+
+.tableau-variable-visuelle{
+	width:60%;
+	height:50%;
+}
+
+
 .center-block{
 	width:35%;
 	height:35%;
@@ -170,6 +177,7 @@ body{
 	background-color:red;
 	min-height: 200px;
 }
+
 
 .image_block2{
 	background-color:red;
@@ -188,3 +196,16 @@ body{
 	min-height: 60px;
 	animation-name: slidein;
 }
+
+
+
+.para{
+	text-indent: 60xp;
+	text-align: justify;
+}
+
+.legend rect {
+ fill:white;
+ stroke:black;
+ opacity:0.8; }
+
